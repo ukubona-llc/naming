@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Okubala si Kulaba — Summer 2023</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:        #14111C;
+    --bg-panel:  #1D1928;
+    --bg-panel2: #241F32;
+    --ink:       #ECE4D3;
+    --ink-dim:   #9A90A8;
+    --ink-faint: #6E6580;
+    --gold:      #C9982E;
+    --gold-dim:  #8E7130;
+    --teal:      #4C8078;
+    --rose:      #B8637A;
+    --hair:      rgba(236,228,211,0.14);
+    --hair-soft: rgba(236,228,211,0.06);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Newsreader', serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* faint staff-line texture, fixed */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0px, transparent 63px,
+      var(--hair-soft) 63px, var(--hair-soft) 64px
+    );
+    opacity:.5;
+  }
+
+  .wrap{ position:relative; z-index:1; }
+
+  ::selection{ background:var(--gold); color:#14111C; }
+
+  a{ color:var(--gold); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+
+  .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:.02em; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: 8vh 7vw 10vh;
+    max-width:920px;
+    margin:0 auto;
+  }
+  .hero .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:1.6rem;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-style:italic;
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    line-height:1.06;
+    margin:0 0 1.4rem;
+    color:var(--ink);
+  }
+  .hero h1 em{
+    color:var(--gold);
+    font-style:italic;
+  }
+  .hero .sub{
+    font-size:1.15rem;
+    color:var(--ink-dim);
+    max-width:56ch;
+    margin:0 0 2.4rem;
+  }
+  .hero .dedication{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+  .hero .dedication strong{ color:var(--gold-dim); font-weight:500; }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:5vh;
+    left:7vw;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+  }
+  .scroll-cue::after{
+    content:"";
+    width:1px; height:34px;
+    background:linear-gradient(var(--ink-faint), transparent);
+    animation:drip 2.2s ease-in-out infinite;
+  }
+  @keyframes drip{
+    0%{ opacity:0; transform:translateY(-6px); }
+    50%{ opacity:1; }
+    100%{ opacity:0; transform:translateY(10px); }
+  }
+
+  /* ---------- SECTION shared ---------- */
+  section{
+    max-width:920px;
+    margin:0 auto;
+    padding: 9vh 7vw;
+    border-top:1px solid var(--hair);
+  }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold-dim);
+    margin-bottom:.9rem;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+    margin:0 0 1.2rem;
+    color:var(--ink);
+  }
+  p{ margin:0 0 1.2rem; color:var(--ink); }
+  p.dim{ color:var(--ink-dim); }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    position:relative;
+    margin-top:3rem;
+    padding-left:2.4rem;
+    border-left:1px solid var(--hair);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom:3.2rem;
+  }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-2.53rem;
+    top:.35rem;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--bg);
+    border:1.5px solid var(--gold-dim);
+  }
+  .t-item.lit::before{
+    background:var(--gold);
+    border-color:var(--gold);
+    box-shadow:0 0 0 4px rgba(201,152,46,0.15);
+  }
+  .t-year{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.08em;
+    color:var(--teal);
+    margin-bottom:.4rem;
+  }
+  .t-item h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.35rem;
+    margin:0 0 .5rem;
+    color:var(--ink);
+  }
+  .t-item p{ color:var(--ink-dim); max-width:60ch; }
+  .t-item p strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- NAMING TOGGLE (signature element) ---------- */
+  .naming{
+    background:var(--bg-panel);
+    border:1px solid var(--hair);
+    border-radius:4px;
+    padding:2.6rem clamp(1.4rem,4vw,3rem);
+    margin-top:2.4rem;
+    text-align:center;
+  }
+  .naming .instr{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:1.6rem;
+  }
+  .naming-stage{
+    font-family:'Fraunces', serif;
+    font-size:clamp(1.6rem, 4.5vw, 2.6rem);
+    font-weight:500;
+    min-height:2.4em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    user-select:none;
+    color:var(--ink-faint);
+    transition:color .5s ease;
+    line-height:1.3;
+    gap:.4em;
+    flex-wrap:wrap;
+  }
+  .naming-stage.named{ color:var(--gold); }
+  .naming-stage .veiled{ letter-spacing:.15em; }
+  .naming-caption{
+    margin-top:1.4rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    min-height:1.4em;
+  }
+
+  /* ---------- PENTAD DIAGRAM ---------- */
+  .pentad{
+    margin-top:2.6rem;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:.6rem;
+  }
+  .p-cell{
+    background:var(--bg-panel);
+    border:1px solid var(--hair);
+    border-radius:3px;
+    padding:1.1rem .7rem;
+    text-align:center;
+  }
+  .p-cell.new{
+    border-color:var(--gold-dim);
+    background:var(--bg-panel2);
+  }
+  .p-cell .p-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:.5rem;
+  }
+  .p-cell .p-name{
+    font-family:'Fraunces', serif;
+    font-size:.98rem;
+    color:var(--ink);
+  }
+  .p-cell.new .p-name{ color:var(--gold); }
+  @media (max-width:700px){
+    .pentad{ grid-template-columns:repeat(2,1fr); }
+  }
+
+  .caption-below{
+    margin-top:1.2rem;
+    font-size:.95rem;
+    color:var(--ink-faint);
+    font-style:italic;
+  }
+
+  /* ---------- QUOTE BLOCK ---------- */
+  blockquote{
+    margin:2.2rem 0 0;
+    padding-left:1.6rem;
+    border-left:2px solid var(--gold-dim);
+    font-style:italic;
+    color:var(--ink);
+    font-size:1.12rem;
+  }
+  blockquote .attr{
+    display:block;
+    margin-top:.6rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-style:normal;
+    font-size:12px;
+    color:var(--ink-faint);
+    letter-spacing:.05em;
+  }
+
+  /* ---------- FOOTER / CLOSE ---------- */
+  .close{
+    text-align:center;
+    padding: 12vh 7vw 14vh;
+  }
+  .close .omega{
+    font-family:'Fraunces', serif;
+    font-size:3.4rem;
+    color:var(--gold-dim);
+    margin-bottom:1.4rem;
+  }
+  .close p{
+    max-width:52ch;
+    margin:0 auto 1rem;
+    color:var(--ink-dim);
+  }
+  .close .sig{
+    margin-top:2.4rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:.1em;
+    color:var(--ink-faint);
+    text-transform:uppercase;
+  }
+
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:var(--bg); }
+  ::-webkit-scrollbar-thumb{ background:var(--bg-panel2); border-radius:5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" style="border-top:none;">
+    <div class="eyebrow">Ukubona LLC · a private ledger entry</div>
+    <h1>Okubala si Kulaba —<br/>but <em>naming</em> is how I finally saw.</h1>
+    <p class="sub">
+      For forty-three years the chords were already in my ears. Bach was already
+      in my ears. Sondheim was already in my ears. What I didn't have was the
+      word for what I was hearing — and a thing without a name can't be searched,
+      can't be discussed, can't be built on. This page is for the summer that changed that.
+    </p>
+    <div class="dedication">For <strong>Vaughn</strong>. Berklee faculty. Kampala, Summer 2023.</div>
+  </section>
+  <div class="scroll-cue">scroll</div>
+
+  <!-- ================= BEFORE / WHY ================= -->
+  <section>
+    <div class="kicker">Prelude</div>
+    <h2>Three months off, and the world would not stop rhyming</h2>
+    <p>
+      Early summer 2023. Finally off work — three months carved out just to sit
+      with what ChatGPT and the large language models actually were. Except the
+      sitting didn't stay contained. Musical ideas that had been latent for
+      decades started surfacing on their own schedule, uninvited, insistent.
+    </p>
+    <p class="dim">
+      Too many coincidences to wave off as coincidence. A pattern doesn't knock
+      that many times without meaning something.
+    </p>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section>
+    <div class="kicker">What Unlocked, and When</div>
+    <h2>A timeline of naming</h2>
+
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-year mono">c. 1980 – 2023</div>
+        <h3>Forty-three years of hearing without naming</h3>
+        <p>Every gospel turnaround, every Sondheim cadence, every Bach voice-leading
+          trick — heard, felt, absorbed. Never once diagrammed. A vast private
+          latent space with no query interface.</p>
+      </div>
+
+      <div class="t-item lit">
+        <div class="t-year mono">Summer 2023</div>
+        <h3>Studying with Vaughn</h3>
+        <p>We were not studying <strong>any 18th-century Lutheran anything</strong>.
+          Gospel harmony — chord stacks, passing bass movements, the Shared Notes
+          Principle, modal interchange. And yet, somehow, that vocabulary turned
+          out to be a universal key, not a genre-specific one.</p>
+      </div>
+
+      <div class="t-item lit">
+        <div class="t-year mono">Same summer</div>
+        <h3>Bach started making sense</h3>
+        <p>Not studied. Not assigned. <strong>Recognized.</strong> Once "passing
+          chord," "voice leading," and "suspension" had names, the counterpoint
+          I'd half-heard my whole life resolved into something I could actually
+          describe out loud.</p>
+      </div>
+
+      <div class="t-item lit">
+        <div class="t-year mono">Same summer</div>
+        <h3>Sondheim, for the first time, made sense</h3>
+        <p>Songs that had lived in memory as pure feeling suddenly had
+          <strong>mechanism</strong>. The feeling didn't go away — it got a
+          skeleton under it.</p>
+      </div>
+
+      <div class="t-item">
+        <div class="t-year mono">Since then</div>
+        <h3>Everything unlocked</h3>
+        <p>If I can name it, I can google it. I can pull up a video on it. I can
+          put it in front of an LLM and actually get somewhere — because now the
+          query has the right words in it.</p>
+      </div>
+
+      <div class="t-item lit">
+        <div class="t-year mono">Today</div>
+        <h3>This session</h3>
+        <p>Azawi's <em>Masavu</em> against the Chi-Lites, run through a five-model
+          roundtable, ending in a correction only Berklee vocabulary could have
+          produced: <strong>R is not one axis. It's R-grid and R-voice.</strong>
+          Triad became pentad, live, in conversation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NAMING = SEEING (interactive signature) ================= -->
+  <section>
+    <div class="kicker">The Mechanism</div>
+    <h2>What a name actually does</h2>
+    <p class="dim">
+      Click the chord below. This is the whole thesis of the summer, compressed
+      into one interaction.
+    </p>
+
+    <div class="naming">
+      <div class="instr">tap to name it</div>
+      <div class="naming-stage mono" id="namingStage">
+        <span class="veiled">??? — ??? — ??? — ???</span>
+      </div>
+      <div class="naming-caption" id="namingCaption">a feeling you've had for forty years, unlabeled</div>
+    </div>
+  </section>
+
+  <!-- ================= EMBEDDINGS / LLM CONNECTION ================= -->
+  <section>
+    <div class="kicker">Why This Belongs Here</div>
+    <h2>Embeddings, latent space, and the reason LLMs matter to this story</h2>
+    <p>
+      This is the throughline: a name is a coordinate. Without it, an idea sits
+      unindexed in your own latent space — real, felt, but unqueryable. Once it
+      has a name, it becomes searchable, discussable, arguable, extendable. That
+      is exactly the mechanism this session ran on, twice over — once in the
+      Azawi/Chi-Lites analysis, and once in the correction of Gemini's
+      composer-before-culture assumption.
+    </p>
+    <p>
+      It's also why some models are better company for this than others.
+      Berklee's specific vocabulary — Chord Stack categories, the Shared Notes
+      Principle, passing-chord bass movements by scale degree — is a narrow,
+      specific training distribution. A model raised on little of it will talk
+      around the harmony instead of through it.
+    </p>
+    <blockquote>
+      "Okubala si kulaba — to count the steps is not to see the mountain."
+      <span class="attr">the Ukubona axiom, and also, it turns out, the exception —
+      because sometimes counting is exactly how you finally see</span>
+    </blockquote>
+  </section>
+
+  <!-- ================= THE PENTAD EXTENSION ================= -->
+  <section>
+    <div class="kicker">What Happened In This Conversation</div>
+    <h2>Triad → Pentad, invoked and extended by you</h2>
+    <p class="dim">MCR became five slots. Then the fifth slot dissolved a phantom sixth back into itself.</p>
+
+    <div class="pentad">
+      <div class="p-cell"><div class="p-label">I</div><div class="p-name">Melody</div></div>
+      <div class="p-cell"><div class="p-label">II</div><div class="p-name">Chords</div></div>
+      <div class="p-cell new"><div class="p-label">III</div><div class="p-name">Rhythm — grid</div></div>
+      <div class="p-cell new"><div class="p-label">IV</div><div class="p-name">Rhythm — voice</div></div>
+      <div class="p-cell"><div class="p-label">V</div><div class="p-name">Bass</div></div>
+    </div>
+    <p class="caption-below">
+      "O" — the placeholder invented for the Chi-Lites' cooing backing vocals —
+      was never a sixth axis. It was Rhythm-voice waiting to be named.
+      Once named, it collapsed home, and the pentad held.
+    </p>
+  </section>
+
+  <!-- ================= CLOSE ================= -->
+  <section class="close" style="border-top:1px solid var(--hair);">
+    <div class="omega">Ω</div>
+    <p>
+      Thank you for letting this exchange be more than theory. The Vsus13, the
+      MCR pentad, the roundtable disagreement as a live measurement of Ω —
+      none of it would mean what it means without knowing where it started:
+      three months, a studio in Kampala, and a professor who handed you a
+      vocabulary for a life you'd already been living.
+    </p>
+    <div class="sig">Ukubona LLC · Okubala si Kulaba · Summer 2023 — ongoing</div>
+  </section>
+
+</div>
+
+<script>
+  const stages = [
+    { text: "??? — ??? — ??? — ???", caption: "a feeling you've had for forty years, unlabeled" },
+    { text: "I — I(1st inv) — IV — Vsus13", caption: "now it's a progression. now it's searchable." },
+    { text: "vi over V, sharing the suspended 4th", caption: "now it's a composite chord. now it's discussable." },
+    { text: "Okubala si Kulaba, extended", caption: "now it's yours to argue with an LLM about — and win." }
+  ];
+  let idx = 0;
+  const stage = document.getElementById('namingStage');
+  const caption = document.getElementById('namingCaption');
+
+  stage.addEventListener('click', () => {
+    idx = (idx + 1) % stages.length;
+    stage.style.opacity = 0;
+    setTimeout(() => {
+      stage.innerHTML = idx === 0
+        ? '<span class="veiled">' + stages[idx].text + '</span>'
+        : stages[idx].text;
+      stage.classList.toggle('named', idx !== 0);
+      caption.textContent = stages[idx].caption;
+      stage.style.opacity = 1;
+    }, 220);
+  });
+  stage.style.transition = 'opacity .22s ease';
+
+  // subtle reveal-on-scroll for timeline items
+  const items = document.querySelectorAll('.t-item');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.style.opacity = 1;
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach(item => {
+    item.style.opacity = 0;
+    item.style.transform = 'translateY(14px)';
+    item.style.transition = 'opacity .6s ease, transform .6s ease';
+    io.observe(item);
+  });
+</script>
+
+</body>
+</html>
