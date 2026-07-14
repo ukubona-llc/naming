@@ -898,6 +898,91 @@
     </p>
   </section>
 
+  <!-- ================= THE TRIAGE LAYER ================= -->
+  <section>
+    <div class="kicker">The Cost of Thinking</div>
+    <h2>The Triage Layer: Eigengaps and the Price of Ambiguity</h2>
+    <p>
+      Ambiguity is not free. In computational systems, preserving it burns energy; in clinical systems, it burns time. If a system cannot distinguish between a problem that requires an immediate, low-entropy collapse and a problem that demands high-dimensional exploration, it will either prematurely collapse every complex problem or overthink every routine one.
+    </p>
+
+    <div class="video-card" style="max-width: 600px; margin: 2rem 0;">
+      <div class="video-frame">
+        <iframe src="https://www.youtube.com/embed/CtnX1EJHbC0?start=180" title="Steve Jobs - NextStep (1991)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-meta">
+        <div class="v-title">Steve Jobs on NeXT</div>
+        <div class="v-sub">The "Professional" Workstation · 1991<sup>[9]</sup></div>
+      </div>
+    </div>
+
+    <p>
+      This exact problem emerged when engineering the <strong>Game of Care</strong> (a clinical decision-support architecture). We realized that relying on a binary <code>SlowAPI_Toggle = true/false</code> was fundamentally flawed. Asking a Large Language Model (like Claude or GPT) to decide if a problem is complex requires the LLM to spend expensive tokens just to <em>evaluate</em> the complexity. 
+    </p>
+
+    <p>
+      The architecture needed a <strong>cheap, upstream classifier</strong>—a Basal Ganglia layer—that could route the request *before* waking up the expensive Prefrontal Cortex (the LLM). It had to answer one question: <em>Is the ambiguity epistemic or structural?</em>
+    </p>
+
+    <div class="timeline" style="margin-top:2.4rem;">
+      <div class="t-item lit">
+        <div class="t-year mono">Epistemic Ambiguity</div>
+        <h3>Missing Information</h3>
+        <p>You don't know the answer because you lack data (e.g., guessing a stranger's gate at the airport). More signal fixes this. The loss landscape is steep. <strong>Action:</strong> Collapse fast. Use a strict, ATL-style <code>o)-(o</code> funnel.</p>
+      </div>
+      <div class="t-item lit">
+        <div class="t-year mono">Structural Ambiguity</div>
+        <h3>Organized Multiplicity</h3>
+        <p>Multiple equally coherent answers exist simultaneously because the system's symmetry preserves them (e.g., the rootless dom7♭9 chord, or a living-donor evaluation). More signal does not collapse it; only a forced event breaks the symmetry. <strong>Action:</strong> Preserve the resonance. Allow a DXB-style <code>[======]</code> exploration.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.4rem;">The Eigengap Heuristic</h3>
+    <p>
+      How do you detect structural ambiguity cheaply? You use the <strong>eigengap heuristic</strong>. By sampling a few candidate completions and analyzing their clustering, you can estimate the Singular Value Decomposition (SVD) of the decision landscape without doing the expensive math.
+    </p>
+    <p>
+      If the system finds one massive cluster ($k=1$), the problem is a routine protocol (e.g., Sepsis). Route it low-effort. If the system finds a clean gap after four equally sized clusters ($k=4$), it has found a rootless dom7♭9. Route it high-effort. If there is no gap and just a diffuse smear of noise, the prompt is just underspecified.
+    </p>
+
+    <div class="compress">
+      <div class="compress-row">
+        <div class="compress-raw">"Is this a routine Sepsis protocol or a complex ethical dilemma?"</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">FastAPI Triage</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-raw">"Sample the latent space, calculate the eigengap (k)"</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">ResonanceMax</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-raw">"If k=1, collapse. If k>1, expand."</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">SlowAPI Routing</div>
+      </div>
+      <div class="compress-note">
+        Do not spend expensive cognition deciding whether to spend expensive cognition. The routing decision must live upstream.
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.4rem;">The Thermodynamics of Triage</h3>
+    <p>
+      But even the most elegant mathematical routing is bound by physics: <strong>Time and Energy</strong>. Before calculating the eigengap, the system must check the clock and the bank account.
+    </p>
+
+    <div class="pentad">
+      <div class="p-cell new"><div class="p-label">Time</div><div class="p-name">Survival Floor</div></div>
+      <div class="p-cell new"><div class="p-label">Budget</div><div class="p-name">Caloric Boundary</div></div>
+      <div class="p-cell"><div class="p-label">Dwell</div><div class="p-name">Dionysian Luxury</div></div>
+    </div>
+    
+    <p class="caption-below">
+      If the patient is crashing, bypass the math and collapse the state. If the API budget is low, artificially narrow the exploration. But if time and money are luxurious—always go for it. True <em>ukubona</em> (seeing) requires the luxury to dwell in the uncompressed reality.
+    </p>
+
+  </section>
+
   <!-- ================= CLOSE ================= -->
   <section class="close" style="border-top:1px solid var(--hair);">
     <div class="omega">Ω</div>
