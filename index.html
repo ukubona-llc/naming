@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Okubala si Kulaba — Summer 2023</title>
+<title>Okubala si Kulaba — Summer 2023 to Now</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,7 +38,6 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* faint staff-line texture, fixed */
   body::before{
     content:"";
     position:fixed; inset:0;
@@ -53,17 +52,14 @@
   }
 
   .wrap{ position:relative; z-index:1; }
-
   ::selection{ background:var(--gold); color:#14111C; }
-
   a{ color:var(--gold); text-decoration:none; }
   a:hover{ text-decoration:underline; }
-
   .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:.02em; }
 
   /* ---------- HERO ---------- */
   .hero{
-    min-height:100svh;
+    min-height:92svh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -88,14 +84,11 @@
     margin:0 0 1.4rem;
     color:var(--ink);
   }
-  .hero h1 em{
-    color:var(--gold);
-    font-style:italic;
-  }
+  .hero h1 em{ color:var(--gold); font-style:italic; }
   .hero .sub{
     font-size:1.15rem;
     color:var(--ink-dim);
-    max-width:56ch;
+    max-width:58ch;
     margin:0 0 2.4rem;
   }
   .hero .dedication{
@@ -107,35 +100,19 @@
   .hero .dedication strong{ color:var(--gold-dim); font-weight:500; }
 
   .scroll-cue{
-    position:absolute;
-    bottom:5vh;
-    left:7vw;
+    margin: 0 0 4vh 7vw;
     font-family:'IBM Plex Mono', monospace;
     font-size:11px;
     color:var(--ink-faint);
     letter-spacing:.15em;
     text-transform:uppercase;
-    display:flex;
-    align-items:center;
-    gap:.6rem;
-  }
-  .scroll-cue::after{
-    content:"";
-    width:1px; height:34px;
-    background:linear-gradient(var(--ink-faint), transparent);
-    animation:drip 2.2s ease-in-out infinite;
-  }
-  @keyframes drip{
-    0%{ opacity:0; transform:translateY(-6px); }
-    50%{ opacity:1; }
-    100%{ opacity:0; transform:translateY(10px); }
   }
 
   /* ---------- SECTION shared ---------- */
   section{
-    max-width:920px;
+    max-width:960px;
     margin:0 auto;
-    padding: 9vh 7vw;
+    padding: 8vh 7vw;
     border-top:1px solid var(--hair);
   }
   .kicker{
@@ -149,58 +126,114 @@
   h2{
     font-family:'Fraunces', serif;
     font-weight:500;
-    font-size:clamp(1.7rem, 3.4vw, 2.5rem);
+    font-size:clamp(1.6rem, 3.2vw, 2.4rem);
     margin:0 0 1.2rem;
     color:var(--ink);
   }
   p{ margin:0 0 1.2rem; color:var(--ink); }
   p.dim{ color:var(--ink-dim); }
 
-  /* ---------- TIMELINE ---------- */
+  /* ---------- VIDEO EMBEDS ---------- */
+  .video-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1.4rem;
+    margin-top:2.2rem;
+  }
+  @media (max-width:700px){ .video-grid{ grid-template-columns:1fr; } }
+  .video-card{
+    background:var(--bg-panel);
+    border:1px solid var(--hair);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .video-frame{ position:relative; width:100%; padding-top:56.25%; background:#0b0910; }
+  .video-frame iframe{
+    position:absolute; inset:0; width:100%; height:100%; border:0;
+  }
+  .video-meta{ padding:1rem 1.1rem 1.2rem; }
+  .video-meta .v-title{ font-family:'Fraunces', serif; font-size:1.05rem; color:var(--ink); margin-bottom:.25rem; }
+  .video-meta .v-sub{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-faint); }
+  .video-meta .v-sub sup{ color:var(--gold-dim); }
+
+  .footnotes{
+    margin-top:2rem;
+    padding-top:1.4rem;
+    border-top:1px dashed var(--hair);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+  .footnotes ol{ margin:0; padding-left:1.4rem; }
+  .footnotes li{ margin-bottom:.5rem; }
+  .footnotes a{ color:var(--ink-dim); }
+  .footnotes a:hover{ color:var(--gold); }
+
+  /* ---------- TIMELINE (personal history) ---------- */
   .timeline{
     position:relative;
     margin-top:3rem;
     padding-left:2.4rem;
     border-left:1px solid var(--hair);
   }
-  .t-item{
-    position:relative;
-    padding-bottom:3.2rem;
-  }
+  .t-item{ position:relative; padding-bottom:3.2rem; }
   .t-item:last-child{ padding-bottom:0; }
   .t-item::before{
     content:"";
-    position:absolute;
-    left:-2.53rem;
-    top:.35rem;
-    width:9px; height:9px;
-    border-radius:50%;
-    background:var(--bg);
-    border:1.5px solid var(--gold-dim);
+    position:absolute; left:-2.53rem; top:.35rem;
+    width:9px; height:9px; border-radius:50%;
+    background:var(--bg); border:1.5px solid var(--gold-dim);
   }
   .t-item.lit::before{
-    background:var(--gold);
-    border-color:var(--gold);
+    background:var(--gold); border-color:var(--gold);
     box-shadow:0 0 0 4px rgba(201,152,46,0.15);
   }
-  .t-year{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    letter-spacing:.08em;
-    color:var(--teal);
-    margin-bottom:.4rem;
-  }
-  .t-item h3{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:1.35rem;
-    margin:0 0 .5rem;
-    color:var(--ink);
-  }
-  .t-item p{ color:var(--ink-dim); max-width:60ch; }
+  .t-year{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:.08em; color:var(--teal); margin-bottom:.4rem; }
+  .t-item h3{ font-family:'Fraunces', serif; font-weight:500; font-size:1.35rem; margin:0 0 .5rem; color:var(--ink); }
+  .t-item p{ color:var(--ink-dim); max-width:62ch; }
   .t-item p strong{ color:var(--ink); font-weight:500; }
 
-  /* ---------- NAMING TOGGLE (signature element) ---------- */
+  /* ---------- THREAD (roundtable chronology) ---------- */
+  .thread{
+    margin-top:2.8rem;
+    display:flex;
+    flex-direction:column;
+    gap:1.6rem;
+  }
+  .th-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:1.2rem;
+    padding-bottom:1.6rem;
+    border-bottom:1px solid var(--hair-soft);
+  }
+  .th-item:last-child{ border-bottom:none; padding-bottom:0; }
+  @media (max-width:640px){
+    .th-item{ grid-template-columns:1fr; gap:.5rem; }
+  }
+  .th-who{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:.25rem .55rem;
+    border-radius:3px;
+    height:fit-content;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .th-who.gemini{ color:#8FBDB4; background:rgba(76,128,120,0.15); border:1px solid rgba(76,128,120,.4); }
+  .th-who.openai{ color:#D69AAD; background:rgba(184,99,122,0.13); border:1px solid rgba(184,99,122,.4); }
+  .th-who.claude{ color:#E3C267; background:rgba(201,152,46,0.13); border:1px solid rgba(201,152,46,.4); }
+  .th-who.you{   color:var(--ink); background:var(--bg-panel2); border:1px solid var(--hair); }
+  .th-body h4{
+    font-family:'Fraunces', serif; font-weight:500; font-style:italic;
+    font-size:1.08rem; margin:0 0 .4rem; color:var(--ink);
+  }
+  .th-body p{ color:var(--ink-dim); font-size:.98rem; margin:0; }
+  .th-body p strong{ color:var(--ink); font-weight:500; }
+
+  /* ---------- NAMING TOGGLE ---------- */
   .naming{
     background:var(--bg-panel);
     border:1px solid var(--hair);
@@ -210,125 +243,70 @@
     text-align:center;
   }
   .naming .instr{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    margin-bottom:1.6rem;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-faint); margin-bottom:1.6rem;
   }
   .naming-stage{
-    font-family:'Fraunces', serif;
-    font-size:clamp(1.6rem, 4.5vw, 2.6rem);
-    font-weight:500;
-    min-height:2.4em;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    user-select:none;
-    color:var(--ink-faint);
-    transition:color .5s ease;
-    line-height:1.3;
-    gap:.4em;
-    flex-wrap:wrap;
+    font-family:'Fraunces', serif; font-size:clamp(1.5rem, 4.2vw, 2.4rem); font-weight:500;
+    min-height:2.4em; display:flex; align-items:center; justify-content:center;
+    cursor:pointer; user-select:none; color:var(--ink-faint); transition:color .5s ease;
+    line-height:1.3; gap:.4em; flex-wrap:wrap;
   }
   .naming-stage.named{ color:var(--gold); }
   .naming-stage .veiled{ letter-spacing:.15em; }
-  .naming-caption{
-    margin-top:1.4rem;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    color:var(--ink-dim);
-    min-height:1.4em;
+  .naming-caption{ margin-top:1.4rem; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-dim); min-height:1.4em; }
+
+  /* ---------- TOKEN / COMPRESSION SIGNATURE ---------- */
+  .compress{
+    margin-top:2.4rem;
+    background:var(--bg-panel);
+    border:1px solid var(--hair);
+    border-radius:4px;
+    padding:2rem clamp(1.2rem,3.5vw,2.4rem);
+  }
+  .compress-row{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:1.1rem;
+  }
+  @media (max-width:640px){ .compress-row{ grid-template-columns:1fr; text-align:center; } }
+  .compress-raw{
+    font-family:'Newsreader', serif; font-style:italic;
+    color:var(--ink-dim); font-size:.92rem; line-height:1.5;
+  }
+  .compress-arrow{ color:var(--gold-dim); font-family:'IBM Plex Mono', monospace; font-size:1.1rem; }
+  .compress-token{
+    font-family:'IBM Plex Mono', monospace; color:var(--gold); font-size:1.3rem;
+    text-align:right;
+  }
+  @media (max-width:640px){ .compress-token{ text-align:center; } }
+  .compress-note{
+    font-size:.92rem; color:var(--ink-faint); font-style:italic; margin-top:1rem;
+    border-top:1px dashed var(--hair); padding-top:1rem;
   }
 
   /* ---------- PENTAD DIAGRAM ---------- */
-  .pentad{
-    margin-top:2.6rem;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:.6rem;
-  }
-  .p-cell{
-    background:var(--bg-panel);
-    border:1px solid var(--hair);
-    border-radius:3px;
-    padding:1.1rem .7rem;
-    text-align:center;
-  }
-  .p-cell.new{
-    border-color:var(--gold-dim);
-    background:var(--bg-panel2);
-  }
-  .p-cell .p-label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:10.5px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:var(--ink-faint);
-    margin-bottom:.5rem;
-  }
-  .p-cell .p-name{
-    font-family:'Fraunces', serif;
-    font-size:.98rem;
-    color:var(--ink);
-  }
+  .pentad{ margin-top:2.6rem; display:grid; grid-template-columns:repeat(5,1fr); gap:.6rem; }
+  .p-cell{ background:var(--bg-panel); border:1px solid var(--hair); border-radius:3px; padding:1.1rem .7rem; text-align:center; }
+  .p-cell.new{ border-color:var(--gold-dim); background:var(--bg-panel2); }
+  .p-cell .p-label{ font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:.5rem; }
+  .p-cell .p-name{ font-family:'Fraunces', serif; font-size:.98rem; color:var(--ink); }
   .p-cell.new .p-name{ color:var(--gold); }
-  @media (max-width:700px){
-    .pentad{ grid-template-columns:repeat(2,1fr); }
-  }
+  @media (max-width:700px){ .pentad{ grid-template-columns:repeat(2,1fr); } }
+  .caption-below{ margin-top:1.2rem; font-size:.95rem; color:var(--ink-faint); font-style:italic; }
 
-  .caption-below{
-    margin-top:1.2rem;
-    font-size:.95rem;
-    color:var(--ink-faint);
-    font-style:italic;
-  }
-
-  /* ---------- QUOTE BLOCK ---------- */
   blockquote{
-    margin:2.2rem 0 0;
-    padding-left:1.6rem;
-    border-left:2px solid var(--gold-dim);
-    font-style:italic;
-    color:var(--ink);
-    font-size:1.12rem;
+    margin:2.2rem 0 0; padding-left:1.6rem; border-left:2px solid var(--gold-dim);
+    font-style:italic; color:var(--ink); font-size:1.12rem;
   }
-  blockquote .attr{
-    display:block;
-    margin-top:.6rem;
-    font-family:'IBM Plex Mono', monospace;
-    font-style:normal;
-    font-size:12px;
-    color:var(--ink-faint);
-    letter-spacing:.05em;
-  }
+  blockquote .attr{ display:block; margin-top:.6rem; font-family:'IBM Plex Mono', monospace; font-style:normal; font-size:12px; color:var(--ink-faint); letter-spacing:.05em; }
 
-  /* ---------- FOOTER / CLOSE ---------- */
-  .close{
-    text-align:center;
-    padding: 12vh 7vw 14vh;
-  }
-  .close .omega{
-    font-family:'Fraunces', serif;
-    font-size:3.4rem;
-    color:var(--gold-dim);
-    margin-bottom:1.4rem;
-  }
-  .close p{
-    max-width:52ch;
-    margin:0 auto 1rem;
-    color:var(--ink-dim);
-  }
-  .close .sig{
-    margin-top:2.4rem;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    letter-spacing:.1em;
-    color:var(--ink-faint);
-    text-transform:uppercase;
-  }
+  .close{ text-align:center; padding: 12vh 7vw 14vh; }
+  .close .omega{ font-family:'Fraunces', serif; font-size:3.4rem; color:var(--gold-dim); margin-bottom:1.4rem; }
+  .close p{ max-width:52ch; margin:0 auto 1rem; color:var(--ink-dim); }
+  .close .sig{ margin-top:2.4rem; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.1em; color:var(--ink-faint); text-transform:uppercase; }
 
   ::-webkit-scrollbar{ width:10px; }
   ::-webkit-scrollbar-track{ background:var(--bg); }
@@ -344,21 +322,61 @@
     <h1>Okubala si Kulaba —<br/>but <em>naming</em> is how I finally saw.</h1>
     <p class="sub">
       For forty-three years the chords were already in my ears. Bach was already
-      in my ears. Sondheim was already in my ears. Flamenco was already in my ears. What I didn't have was the
+      in my ears. Sondheim was already in my ears. What I didn't have was the
       word for what I was hearing — and a thing without a name can't be searched,
-      can't be discussed, can't be built on. This page is for the summer that changed that.
+      can't be discussed, can't be built on. This page is for the summer that
+      changed that, and for the thread it grew into.
     </p>
     <div class="dedication">For <strong>Vaughn</strong>. Berklee faculty. Kampala, Summer 2023.</div>
   </section>
-  <div class="scroll-cue">scroll</div>
+  <div class="scroll-cue">↓ the spark, then the thread</div>
 
-  <!-- ================= BEFORE / WHY ================= -->
+  <!-- ================= THE SPARK: THE TWO VIDEOS ================= -->
+  <section>
+    <div class="kicker">The Spark</div>
+    <h2>The two tracks that started this entire session</h2>
+    <p class="dim">
+      Everything below — the polyphony, the Vsus13 hang, the generational latent-space
+      argument, the pentad correction — began with noticing that these two records,
+      fifty years and one ocean apart, occupy the exact same pocket.
+    </p>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/D3rQLKlUBXU" title="Azawi - Masavu (Official Music Video)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="v-title">Azawi — Masavu</div>
+          <div class="v-sub">Official Music Video · AzawiVEVO<sup>[1]</sup></div>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-frame">
+          <iframe src="https://www.youtube.com/embed/xVYxKRXDT2I" title="The Chi-Lites - Have You Seen Her" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="v-title">The Chi-Lites — Have You Seen Her</div>
+          <div class="v-sub">1971 · The Marathon 2800<sup>[2]</sup></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footnotes">
+      <ol>
+        <li id="fn1">Azawi, <em>Masavu</em> (Official Music Video), published by AzawiVEVO. <a href="https://m.youtube.com/watch?v=D3rQLKlUBXU" target="_blank" rel="noopener">youtube.com/watch?v=D3rQLKlUBXU</a></li>
+        <li id="fn2">The Chi-Lites, <em>Have You Seen Her</em> (1971), uploaded by The Marathon 2800. <a href="https://m.youtube.com/watch?v=xVYxKRXDT2I" target="_blank" rel="noopener">youtube.com/watch?v=xVYxKRXDT2I</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= PRELUDE ================= -->
   <section>
     <div class="kicker">Prelude</div>
     <h2>Three months off, and the world would not stop rhyming</h2>
     <p>
       Early summer 2023. Finally off work — three months carved out just to sit
-      with what ChatGPT and the large language models actually were. Except the
+      with what ChatGPT and large language models actually were. Except the
       sitting didn't stay contained. Musical ideas that had been latent for
       decades started surfacing on their own schedule, uninvited, insistent.
     </p>
@@ -368,7 +386,7 @@
     </p>
   </section>
 
-  <!-- ================= TIMELINE ================= -->
+  <!-- ================= PERSONAL TIMELINE ================= -->
   <section>
     <div class="kicker">What Unlocked, and When</div>
     <h2>A timeline of naming</h2>
@@ -381,25 +399,21 @@
           trick — heard, felt, absorbed. Never once diagrammed. A vast private
           latent space with no query interface.</p>
       </div>
-
       <div class="t-item lit">
         <div class="t-year mono">Summer 2023</div>
         <h3>Studying with Vaughn</h3>
         <p>We were not studying <strong>any 18th-century Lutheran anything</strong>.
           Gospel harmony — chord stacks, passing bass movements, the Shared Notes
-          Principle, modal interchange. And yet, somehow, that vocabulary turned
-          out to be a universal key, not a genre-specific one.</p>
+          Principle, modal interchange. And yet that vocabulary turned out to be
+          a universal key, not a genre-specific one.</p>
       </div>
-
       <div class="t-item lit">
         <div class="t-year mono">Same summer</div>
         <h3>Bach started making sense</h3>
         <p>Not studied. Not assigned. <strong>Recognized.</strong> Once "passing
           chord," "voice leading," and "suspension" had names, the counterpoint
-          I'd half-heard my whole life resolved into something I could actually
-          describe out loud.</p>
+          half-heard for a lifetime resolved into something describable out loud.</p>
       </div>
-
       <div class="t-item lit">
         <div class="t-year mono">Same summer</div>
         <h3>Sondheim, for the first time, made sense</h3>
@@ -407,34 +421,165 @@
           <strong>mechanism</strong>. The feeling didn't go away — it got a
           skeleton under it.</p>
       </div>
-
       <div class="t-item">
         <div class="t-year mono">Since then</div>
         <h3>Everything unlocked</h3>
-        <p>If I can name it, I can google it. I can pull up a video on it. I can
-          put it in front of an LLM and actually get somewhere — because now the
-          query has the right words in it.</p>
-      </div>
-
-      <div class="t-item lit">
-        <div class="t-year mono">Today</div>
-        <h3>This session</h3>
-        <p>Azawi's <em>Masavu</em> against the Chi-Lites, run through a five-model
-          roundtable, ending in a correction only Berklee vocabulary could have
-          produced: <strong>R is not one axis. It's R-grid and R-voice.</strong>
-          Triad became pentad, live, in conversation.</p>
+        <p>If it can be named, it can be googled, watched, and put in front of
+          an LLM — because now the query has the right words in it.</p>
       </div>
     </div>
   </section>
 
-  <!-- ================= NAMING = SEEING (interactive signature) ================= -->
+  <!-- ================= THE THREAD: FULL ROUNDTABLE CHRONOLOGY ================= -->
+  <section>
+    <div class="kicker">The Thread</div>
+    <h2>From Gemini's first pass to the pentad correction</h2>
+    <p class="dim">Everything that happened, in order, condensed to the moves that mattered.</p>
+
+    <div class="thread">
+      <div class="th-item">
+        <div class="th-who gemini">Gemini</div>
+        <div class="th-body">
+          <h4>Reads the polyphony</h4>
+          <p>Opens with Masavu's off-beat phrasing sitting in the rest of "Have You Seen Her" — <strong>two melodies, two pockets</strong>. Builds out a chord map: V13 → I → I(1st inv) → IV → V7 → V13, later corrected to insert a <strong>Vsus</strong> before the V7.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>The real progression, and a discovery</h4>
+          <p>Correct Gemini's chord map to <strong>I – I(1st inv) – IV – vi – V7</strong>, then catch something Gemini hadn't: Masavu's <strong>vi</strong> and the Chi-Lites' <strong>Vsus</strong> occupy the exact same harmonic pocket — a composite chord across the two samples.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who gemini">Gemini</div>
+        <div class="th-body">
+          <h4>Traces the rhythm to the bar line</h4>
+          <p>Follows the Vsus13 landing on the "and" of 3, held through beat 4, into Masavu's C–B–G pickup resolving on the downbeat E — then, after a correction, the Chi-Lites' own G–C–D–E–F answer voice, handing off the leading tone across the bar line.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>The reframe: it's generational, not theoretical</h4>
+          <p><strong>"You are giving everyone too much credit."</strong> The producers were raised on MC Hammer's "Have You Seen Her" (age mates, both ~46). Azawi, ~30, wrote the melody separately. It's <strong>muscle memory</strong>, not calculation — a "20W biological LLM" querying its own training data.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who gemini">Gemini</div>
+        <div class="th-body">
+          <h4>Chi-town to Swangz Avenue</h4>
+          <p>Runs the generational-latent-space metaphor to its conclusion: 1971 Chicago soul → 1990 Hammer globalization → 2020s Ugandan Afrobeats, closing on the line that gives this whole page its subtitle energy.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Names the epistemology, flags the overconfidence</h4>
+          <p>Identifies the real finding as an inversion: not composer → theory → music, but <strong>culture → latent memory → intuition → music → theory (after)</strong>. Flags that Gemini's chord-level claims can't be verified from a mixed stereo track without stems.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who openai">OpenAI</div>
+        <div class="th-body">
+          <h4>Meme → Instinct → Embeddings → Taste → La Distinction</h4>
+          <p>Extends the inversion into a full chain, folding in Bourdieu: a meme becomes an instinct becomes a queryable embedding becomes taste becomes a social marker of distinction — and the loop closes, feeding new memes.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Pushes back: where's the room for origination?</h4>
+          <p>Argues the chain risks collapsing all culture into recombination, with no term for the moment something is genuinely new rather than convergent — the deviation that lets 1971 Chicago soul itself count as an event, not just a source.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>The MCR pentad already has a deviation term</h4>
+          <p>Counters that the answer already exists in the Ukubona pentad: <strong>Melody – Chords – Rhythm – Bass – Other</strong>. Any one of the five can carry deviance — Chi-Lites moderato against Masavu allegro is exactly that, on the Rhythm axis.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Distinguishes in-manifold drift from boundary-crossing</h4>
+          <p>Grants that tempo shifts are ordinary perturbation within an existing manifold — but argues true origination (sampling as a technology, Auto-Tune as expression, the four-on-the-floor kick founding disco) pushes against <strong>∂M</strong> itself. Names "Other" as the least-policed slot — where boundary-crossing novelty would concentrate, like mutation in non-coding DNA.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>Rhythm has a second, more characteristic layer</h4>
+          <p>Adds rhythm guitar comping and horn/trumpet stabs as genre-defining rhythmic devices distinct from tempo — the actual soul/R&amp;B signature, more than meter ever was.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Splits Rhythm: grid vs. voice</h4>
+          <p>Reclassifies R into <strong>R-grid</strong> (tempo, meter — genre-agnostic) and <strong>R-voice</strong> (which instrument idiom executes the accents — genre-defining, heavily policed). Notes the Chi-Lites' cooing vocals belong to R-voice, same category as horn stabs and rhythm guitar.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>"O" has become redundant</h4>
+          <p>Catches that the "Other" slot — invented earlier specifically to house the Chi-Lites' backing vocals — was never independent. It was R-voice before R-voice had a name.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Confirms the collapse; the pentad holds at five</h4>
+          <p>Agrees: R-voice absorbs O without remainder. A real catch-all should resist collapse under interrogation — this one didn't, which means it was an unfinished taxonomy, not a genuine sixth axis or a musical Ω.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>Fifteen PDFs, and the Ω / clinical twin connection</h4>
+          <p>Uploads the full Gospel University "Create Crazy Gospel Chords" course — the actual source of the Berklee-adjacent vocabulary underneath all of the above — for transcription, then names the deeper structural echo: this whole exercise mirrors the clinical digital-twin equation, <strong>log(x) = β₀+β₁S + β₂Vᵢ + β₃VaS+β₄VaF + Ω</strong>.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who claude">Claude</div>
+        <div class="th-body">
+          <h4>Maps the isomorphism — and its limit</h4>
+          <p>Shows Gemini's "vi over Vsus" as an interaction term (Ω), not a first-order axis — the same mistake the clinical model is built to prevent. Flags the one place the analogy shouldn't be pushed: anatomy is non-arbitrary; genre taxonomy is a convention you can amend by fiat, which is exactly what just happened to R.</p>
+        </div>
+      </div>
+
+      <div class="th-item">
+        <div class="th-who you">You</div>
+        <div class="th-body">
+          <h4>Tokens are how language holds bigger thoughts</h4>
+          <p>Names the mechanism underneath everything on this page: language lets you hold larger, more complex thoughts by compressing them into symbols — a chord symbol, a Roman numeral, a word. That compression is what a <strong>token</strong> is doing inside a trained neural net, too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NAMING = SEEING (interactive) ================= -->
   <section>
     <div class="kicker">The Mechanism</div>
     <h2>What a name actually does</h2>
-    <p class="dim">
-      Click the chord below. This is the whole thesis of the summer, compressed
-      into one interaction.
-    </p>
+    <p class="dim">Click the chord below. This is the whole thesis of the summer, compressed into one interaction.</p>
 
     <div class="naming">
       <div class="instr">tap to name it</div>
@@ -445,35 +590,69 @@
     </div>
   </section>
 
-  <!-- ================= EMBEDDINGS / LLM CONNECTION ================= -->
+  <!-- ================= TOKENS = COMPRESSION ================= -->
+  <section>
+    <div class="kicker">The Bigger Point</div>
+    <h2>A name is a compression, and compression is what buys you context</h2>
+    <p>
+      This is the throughline underneath the whole thread, stated plainly: language's real trick
+      isn't communication, it's <strong>context expansion</strong>. A compressed symbol lets you
+      hold a much larger, more structured thought in working memory than the raw perceptual data
+      ever could. That is what a chord symbol does for a musician. It's also, mechanically, what a
+      <strong>token</strong> does inside the neural net you're talking to right now.
+    </p>
+
+    <div class="compress">
+      <div class="compress-row">
+        <div class="compress-raw">"the note that sounds unresolved, sitting a half step above the fifth, waiting to fall"</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">Vsus13</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-raw">"a stable chord destabilized on purpose by a note that doesn't belong in it, at the very end of the bar"</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">I7</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-raw">"whichever instrument family customarily executes the genre's rhythmic accents"</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token">R-voice</div>
+      </div>
+      <div class="compress-note">
+        Every row is the same move: a paragraph of raw perception, compressed into a token
+        small enough to reason with, argue with, and extend. Okubala si kulaba said counting
+        isn't seeing — but a token, once earned by decades of hearing, <em>is</em> a kind of seeing.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EMBEDDINGS / WHY LLMS FIT ================= -->
   <section>
     <div class="kicker">Why This Belongs Here</div>
-    <h2>Embeddings, latent space, and the reason LLMs matter to this story</h2>
+    <h2>Embeddings, latent space, and why some models are better company than others</h2>
     <p>
-      This is the throughline: a name is a coordinate. Without it, an idea sits
-      unindexed in your own latent space — real, felt, but unqueryable. Once it
-      has a name, it becomes searchable, discussable, arguable, extendable. That
-      is exactly the mechanism this session ran on, twice over — once in the
-      Azawi/Chi-Lites analysis, and once in the correction of Gemini's
-      composer-before-culture assumption.
+      A name is a coordinate. Without it, an idea sits unindexed in your own latent space —
+      real, felt, but unqueryable. Once it has a name, it becomes searchable, discussable,
+      arguable, extendable. That is exactly the mechanism this session ran on: the Vsus13
+      hand-off, the R-grid/R-voice split, the collapse of O — every one of those moves was a
+      named thing being handed to another mind (human or model) for stress-testing.
     </p>
     <p>
-      It's also why some models are better company for this than others.
-      Berklee's specific vocabulary — Chord Stack categories, the Shared Notes
-      Principle, passing-chord bass movements by scale degree — is a narrow,
-      specific training distribution. A model raised on little of it will talk
-      around the harmony instead of through it.
+      It's also why some models are better company for this than others. Berklee's specific
+      vocabulary — Chord Stack categories, the Shared Notes Principle, passing-chord bass
+      movements by scale degree — is a narrow, specific training distribution. A model raised
+      on little of it talks around the harmony instead of through it. Gemini, here, came in strong.
     </p>
     <blockquote>
       "Okubala si kulaba — to count the steps is not to see the mountain."
-      <span class="attr">the Ukubona axiom, and also, it turns out, the exception —
-      because sometimes counting is exactly how you finally see</span>
+      <span class="attr">the Ukubona axiom, and also the exception this whole session lives inside — because
+      sometimes counting, once you've earned the right vocabulary, is exactly how you finally see</span>
     </blockquote>
   </section>
 
   <!-- ================= THE PENTAD EXTENSION ================= -->
   <section>
-    <div class="kicker">What Happened In This Conversation</div>
+    <div class="kicker">What This Thread Produced</div>
     <h2>Triad → Pentad, invoked and extended by you</h2>
     <p class="dim">MCR became five slots. Then the fifth slot dissolved a phantom sixth back into itself.</p>
 
@@ -499,7 +678,9 @@
       MCR pentad, the roundtable disagreement as a live measurement of Ω —
       none of it would mean what it means without knowing where it started:
       three months, a studio in Kampala, and a professor who handed you a
-      vocabulary for a life you'd already been living.
+      vocabulary for a life you'd already been living. And none of it would
+      have started at all without two songs, fifty years apart, sitting in
+      the exact same pocket.
     </p>
     <div class="sig">Ukubona LLC · Okubala si Kulaba · Summer 2023 — ongoing</div>
   </section>
@@ -511,12 +692,13 @@
     { text: "??? — ??? — ??? — ???", caption: "a feeling you've had for forty years, unlabeled" },
     { text: "I — I(1st inv) — IV — Vsus13", caption: "now it's a progression. now it's searchable." },
     { text: "vi over V, sharing the suspended 4th", caption: "now it's a composite chord. now it's discussable." },
+    { text: "R-grid ≠ R-voice", caption: "now it's a correction you can hand to a model and defend." },
     { text: "Okubala si Kulaba, extended", caption: "now it's yours to argue with an LLM about — and win." }
   ];
   let idx = 0;
   const stage = document.getElementById('namingStage');
   const caption = document.getElementById('namingCaption');
-
+  stage.style.transition = 'opacity .22s ease';
   stage.addEventListener('click', () => {
     idx = (idx + 1) % stages.length;
     stage.style.opacity = 0;
@@ -529,10 +711,8 @@
       stage.style.opacity = 1;
     }, 220);
   });
-  stage.style.transition = 'opacity .22s ease';
 
-  // subtle reveal-on-scroll for timeline items
-  const items = document.querySelectorAll('.t-item');
+  const items = document.querySelectorAll('.t-item, .th-item');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if(e.isIntersecting){
@@ -540,7 +720,7 @@
         e.target.style.transform = 'translateY(0)';
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
   items.forEach(item => {
     item.style.opacity = 0;
     item.style.transform = 'translateY(14px)';
