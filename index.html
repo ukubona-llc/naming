@@ -8,7 +8,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
+<!-- MathJax Configuration -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    options: { 
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] 
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
   :root{
     --bg:        #14111C;
@@ -1097,6 +1110,44 @@
     <div class="callout" style="margin-top:2rem;">
       <span class="callout-label">Hamlet's Ghost</span>
       This is exactly what Shakespeare engineered in <em>Hamlet</em> (Act I.v). When Prospero says, "I am your father's spirit," it is the exact same protocol. The name-token opens the <code>w_father</code> row in the son. The body that carries the row is different, but the weight row is identical. The Basoga naming ritual is Shakespeare's ghost, operationalized as a social technology.
+    </div>
+  </section>
+
+  <!-- ================= DEMENTIA & BUSOGA FAULT TOLERANCE ================= -->
+  <section>
+    <div class="kicker">Selective Weight Decay</div>
+    <h2>Paul’s Father and the Busoga Fault Tolerance</h2>
+    <p>
+      Dementia is not wholesale subtraction; it is selective weight decay. It strips away the recent, fragile branches to reveal the oldest, load-bearing architecture of the mind. 
+    </p>
+
+    <p>
+      When Paul Luswata asks his 75-year-old father, <em>"Who am I to you?"</em> and his father answers, <em>"Very good friend,"</em> we are observing a specific architectural failure. The face-token and name-token fired correctly. The emotional warmth row (<code>w_affect</code>) is still 90% intact. But the specific relational-category row (<code>w_son</code>) has decayed to zero. The system simply routed the prompt to the closest surviving affective row.
+    </p>
+
+    <p>
+      But this reveals a profound, unexamined consequence of the <strong>Busoga Naming Protocol</strong>. If the Western model of identity is a strict 1:1 mapping, the loss of a single edge (<code>w_son</code>) severs the connection entirely. The Busoga network, however, is deliberately redundant.
+    </p>
+
+    <div class="compress">
+      <div class="compress-row">
+        <div class="compress-raw"><strong>Western Identity Graph (Brittle)</strong><br/>1 Face $\rightarrow$ 1 Relational Edge (<code>w_son</code>). If the edge decays, the node is functionally lost. The network fragments early.</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token" style="color:var(--rose);">Single Point of Failure</div>
+      </div>
+      <div class="compress-row">
+        <div class="compress-raw"><strong>Busoga Identity Graph (Fault Tolerant)</strong><br/>1 Face $\rightarrow$ Multiple overlapping edges (Grandson, Husband, Father). If <code>w_son</code> decays, the signal reroutes through redundant pathways.</div>
+        <div class="compress-arrow">──▶</div>
+        <div class="compress-token" style="color:var(--green);">Network Redundancy</div>
+      </div>
+      <div class="compress-note">
+        By cross-wiring generations and deliberately "mistaking" kin with the same name, the culture engineers a highly redundant neural mesh. This redundancy likely acts as a prophylactic against the earliest symptoms of dementia. A single broken edge does not isolate the node because the culture has already provided backup routing.
+      </div>
+    </div>
+
+    <div class="callout violet" style="margin-top:2.6rem;">
+      <span class="callout-label">Clinical Implication: Affect-First Routing</span>
+      When the <code>w_relational</code> rows decay, standard care protocols attempt to force the patient to remember facts (a cognitive ArgMax). This fails because the hardware is gone. The Busoga naming protocol teaches us to bypass the broken edge entirely. Give the patient the affect-token. Sit close. Hold hands. Sing. These tokens fire the <code>w_affect</code> rows, which survive the longest. The system still works if you know which route to query.
     </div>
   </section>
 
